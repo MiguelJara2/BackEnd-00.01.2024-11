@@ -12,11 +12,11 @@ con.connect(function (err) {
     con.query(sql, function (err, result) {
         if (err) throw err;
     });
-    var sql = "CREATE TABLE IF NOT EXISTS  Pedidos (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, paquete VARCHAR(250) unique , ubicación VARCHAR(250),correo VARCHAR(2550),Estado INT(6))";
+    var sql = "CREATE TABLE IF NOT EXISTS  pedidos (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, paquete VARCHAR(250) unique , ubicación VARCHAR(250),correo VARCHAR(2550),Estado INT(6))";
     con.query(sql, function (err, result) {
         if (err) throw err;
     });
-    var sql = "CREATE TABLE IF NOT EXISTS  Mensajes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, message VARCHAR(2550),user VARCHAR(2550))";
+    var sql = "CREATE TABLE IF NOT EXISTS  mensajes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, message VARCHAR(2550),user VARCHAR(2550))";
     con.query(sql, function (err, result) {
         if (err) throw err;
     });

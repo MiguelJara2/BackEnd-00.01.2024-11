@@ -8,7 +8,7 @@ var con = require("./database/db");
 var bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 let email = "";
 
 const http = require('http');
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:4000/auth/google/callback"
+    callbackURL: `http://localhost:${PORT}/auth/google/callback`,
 }, (accessToken, refreshToken, profile, done) => {
     return done(null, profile);
 }));
@@ -91,8 +91,8 @@ function chat_ononline(io) {
                 if (err) throw err;
                 //console.log("1 record inserted");
                 io.emit('server:mandarpaquetes', result)
-                console.log(result[0].paquete);
-                console.log(result[0]['ubicación'])
+                
+                
             })
 
         }
